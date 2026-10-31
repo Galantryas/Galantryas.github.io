@@ -1,6 +1,6 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { readFileSync } from 'node:fs';
+import { readFileSync, existsSync } from 'node:fs';
 
 const html = readFileSync(new URL('../index.html', import.meta.url), 'utf8');
 
@@ -22,4 +22,15 @@ test('404 page exists and links home', () => {
   const notFound = readFileSync(new URL('../404.html', import.meta.url), 'utf8');
   assert.match(notFound, /href="\/"/);
   assert.match(notFound, /assets\/styles\.css/);
+});
+
+test('favicon is declared on both pages and the files exist', () => {
+  const notFound = readFileSync(new URL('../404.html', import.meta.url), 'utf8');
+  for (const page of [html, notFound]) {
+    assert.match(page, /rel="icon"[^>]*favicon\.svg/);
+    assert.match(page, /rel="apple-touch-icon"/);
+  }
+  for (const file of ['favicon.svg', 'favicon-32.png', 'apple-touch-icon.png']) {
+    assert.ok(existsSync(new URL(`../assets/${file}`, import.meta.url)), file);
+  }
 });
