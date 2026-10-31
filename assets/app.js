@@ -1,8 +1,17 @@
 import { projects } from '../data/projects.js';
-import { renderWorkRow, renderWorkDetail, resolveTheme, resolveLang, t } from './lib.js';
+import {
+  renderWorkRow,
+  renderWorkDetail,
+  resolveTheme,
+  resolveLang,
+  mailtoHref,
+  canCopy,
+  t,
+} from './lib.js';
 
 const THEME_KEY = 'porto.theme';
 const LANG_KEY = 'porto.lang';
+const EMAIL = 'galantryas.2014@gmail.com';
 let lang = 'en';
 
 function renderWork() {
@@ -80,5 +89,44 @@ function initLang() {
   });
 }
 
+function selectEmailFallback() {
+  const input = document.createElement('input');
+  input.value = EMAIL;
+  input.setAttribute('readonly', '');
+  input.style.position = 'fixed';
+  input.style.opacity = '0';
+  document.body.appendChild(input);
+  input.select();
+  try {
+    document.execCommand('copy');
+  } finally {
+    input.remove();
+  }
+}
+
+function initContact() {
+  const link = document.getElementById('email-link');
+  if (link) link.href = mailtoHref(EMAIL, 'Project enquiry');
+
+  const button = document.getElementById('copy-email');
+  const feedback = document.getElementById('copy-feedback');
+  if (!button) return;
+
+  button.addEventListener('click', async () => {
+    try {
+      if (canCopy()) await navigator.clipboard.writeText(EMAIL);
+      else selectEmailFallback();
+    } catch {
+      selectEmailFallback();
+    }
+
+    if (feedback) {
+      feedback.hidden = false;
+      setTimeout(() => { feedback.hidden = true; }, 2000);
+    }
+  });
+}
+
 initTheme();
 initLang();
+initContact();

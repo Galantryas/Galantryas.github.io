@@ -62,3 +62,12 @@ export function resolveLang(stored, navigatorLang) {
   if (stored === 'en' || stored === 'id') return stored;
   return String(navigatorLang || '').toLowerCase().startsWith('id') ? 'id' : 'en';
 }
+
+export function mailtoHref(email, subject) {
+  const clean = String(email).replace(/["<>]/g, '');
+  return `mailto:${clean}?subject=${encodeURIComponent(subject)}`;
+}
+
+export function canCopy() {
+  return typeof navigator !== 'undefined' && !!navigator.clipboard?.writeText;
+}
