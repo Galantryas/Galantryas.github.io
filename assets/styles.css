@@ -432,12 +432,11 @@ p { margin: 0 0 var(--s3); }
 
 @media (prefers-reduced-motion: no-preference) {
   .js main section:not(.is-visible) {
-    opacity: 0;
     transform: translateY(12px);
   }
 
   .js main section {
-    transition: opacity 220ms var(--ease), transform 220ms var(--ease);
+    transition: transform 220ms var(--ease);
   }
 }
 
