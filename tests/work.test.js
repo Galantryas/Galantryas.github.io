@@ -47,3 +47,15 @@ test('html in copy is escaped', () => {
   assert.doesNotMatch(row, /<script>/);
   assert.match(row, /&lt;script&gt;/);
 });
+
+test('a renamed image file degrades instead of showing a broken icon', () => {
+  const detail = renderWorkDetail({ ...project, image: 'assets/work/gone.webp' }, 'en');
+  assert.match(detail, /onerror=/);
+  assert.match(detail, /data-fallback="Smart Eco"/);
+});
+
+test('expanded rows render open after a re-render', () => {
+  const detail = renderWorkDetail(project, 'en', true);
+  assert.doesNotMatch(detail, /hidden>/);
+  assert.match(renderWorkRow(project, 'en', '', true), /aria-expanded="true"/);
+});

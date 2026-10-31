@@ -18,6 +18,18 @@
   <meta name="twitter:description" content="Six years of Laravel and Vue behind cooperative, POS, HRIS and PPOB systems.">
   <meta name="twitter:image" content="https://galantryas.github.io/assets/og.png">
   <link rel="stylesheet" href="assets/styles.css">
+  <script>
+    (function () {
+      try {
+        var stored = localStorage.getItem('porto.theme');
+        if (stored === 'light' || stored === 'dark') {
+          document.documentElement.setAttribute('data-theme', stored);
+        }
+      } catch (error) {
+        /* storage blocked: fall back to the OS preference */
+      }
+    })();
+  </script>
   <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -54,7 +66,7 @@
 
       <div class="rail-controls">
         <button id="theme-toggle" type="button" aria-pressed="false">
-          <span data-i18n="ui.theme.toDark">Dark</span>
+          <span data-i18n="ui.theme.dark">Dark mode</span>
         </button>
         <div class="lang" role="group" aria-label="Language">
           <button type="button" data-lang="en" aria-pressed="true">EN</button>
@@ -63,7 +75,7 @@
       </div>
     </header>
 
-    <main id="main">
+    <main id="main" tabindex="-1">
       <section id="hero">
         <h1 class="hero-title">
           <span data-i18n="hero.line1">I build the systems</span><br>
@@ -80,7 +92,7 @@
         <h2 data-i18n="work.title">Selected work</h2>
         <p class="work-intro" data-i18n="work.intro">Two projects from the archive. Both shipped, both mine.</p>
         <ul id="work-list"></ul>
-        <noscript><p class="meta" data-i18n="work.noscript">The work list needs JavaScript enabled.</p></noscript>
+        <p id="work-fallback" class="meta" data-i18n="work.noscript">The work list needs JavaScript enabled.</p>
       </section>
 
       <section id="about">
@@ -142,7 +154,7 @@
         <p class="contact-row">
           <a href="mailto:galantryas.2014@gmail.com" id="email-link">galantryas.2014@gmail.com</a>
           <button type="button" id="copy-email" data-i18n="contact.copy">Copy</button>
-          <span id="copy-feedback" class="meta" data-i18n="contact.copied" hidden>Copied</span>
+          <span id="copy-feedback" class="meta" role="status" aria-live="polite" data-i18n="contact.copied" hidden>Copied</span>
         </p>
         <p class="contact-links">
           <a href="https://github.com/Galantryas" rel="noopener">GitHub</a>

@@ -6,41 +6,62 @@ import {
   resolveLang,
   mailtoHref,
   canCopy,
+  readStore,
+  writeStore,
   t,
 } from './lib.js';
 
 const THEME_KEY = 'porto.theme';
 const LANG_KEY = 'porto.lang';
 const EMAIL = 'galantryas.2014@gmail.com';
+
 let lang = 'en';
+const expandedIds = new Set();
+
+function storage() {
+  try {
+    return window.localStorage;
+  } catch {
+    return null;
+  }
+}
 
 function renderWork() {
   const list = document.getElementById('work-list');
   if (!list) return;
 
   list.innerHTML = projects
-    .map((project) => renderWorkRow(project, lang, renderWorkDetail(project, lang)))
+    .map((project) =>
+      renderWorkRow(
+        project,
+        lang,
+        renderWorkDetail(project, lang, expandedIds.has(project.id)),
+        expandedIds.has(project.id),
+      ),
+    )
     .join('');
 
   list.querySelectorAll('.work-toggle').forEach((toggle) => {
     toggle.addEventListener('click', () => {
-      const expanded = toggle.getAttribute('aria-expanded') === 'true';
-      toggle.setAttribute('aria-expanded', String(!expanded));
+      const isOpen = toggle.getAttribute('aria-expanded') === 'true';
+      const id = toggle.getAttribute('aria-controls').replace('detail-', '');
+      if (isOpen) expandedIds.delete(id);
+      else expandedIds.add(id);
+
+      toggle.setAttribute('aria-expanded', String(!isOpen));
       const detail = document.getElementById(toggle.getAttribute('aria-controls'));
-      if (detail) detail.hidden = expanded;
+      if (detail) detail.hidden = isOpen;
     });
   });
+
+  const fallback = document.getElementById('work-fallback');
+  if (fallback) fallback.hidden = true;
 }
 
 function applyTheme(theme) {
   document.documentElement.dataset.theme = theme;
   const button = document.getElementById('theme-toggle');
-  if (!button) return;
-  button.setAttribute('aria-pressed', String(theme === 'dark'));
-  const label = button.querySelector('span');
-  if (label) {
-    label.textContent = t(lang, theme === 'dark' ? 'ui.theme.toLight' : 'ui.theme.toDark');
-  }
+  if (button) button.setAttribute('aria-pressed', String(theme === 'dark'));
 }
 
 function currentTheme() {
@@ -62,68 +83,97 @@ function applyLang(next) {
     button.setAttribute('aria-pressed', String(button.dataset.lang === next));
   });
 
+  const link = document.getElementById('email-link');
+  if (link) link.href = mailtoHref(EMAIL, t(next, 'contact.subject'));
+
   renderWork();
-  applyTheme(currentTheme());
 }
 
 function initTheme() {
-  const stored = localStorage.getItem(THEME_KEY);
+  const store = storage();
   const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-  applyTheme(resolveTheme(stored, systemPrefersDark));
+  applyTheme(resolveTheme(readStore(store, THEME_KEY), systemPrefersDark));
 
   document.getElementById('theme-toggle')?.addEventListener('click', () => {
     const next = currentTheme() === 'dark' ? 'light' : 'dark';
-    localStorage.setItem(THEME_KEY, next);
+    writeStore(store, THEME_KEY, next);
     applyTheme(next);
   });
 }
 
 function initLang() {
-  applyLang(resolveLang(localStorage.getItem(LANG_KEY), navigator.language));
+  applyLang(resolveLang(readStore(storage(), LANG_KEY), navigator.language));
 
   document.querySelectorAll('[data-lang]').forEach((button) => {
     button.addEventListener('click', () => {
-      localStorage.setItem(LANG_KEY, button.dataset.lang);
+      writeStore(storage(), LANG_KEY, button.dataset.lang);
       applyLang(button.dataset.lang);
     });
   });
 }
 
-function selectEmailFallback() {
-  const input = document.createElement('input');
-  input.value = EMAIL;
-  input.setAttribute('readonly', '');
-  input.style.position = 'fixed';
-  input.style.opacity = '0';
-  document.body.appendChild(input);
-  input.select();
+function execCopyFallback() {
   try {
-    document.execCommand('copy');
-  } finally {
+    const input = document.createElement('input');
+    input.value = EMAIL;
+    input.setAttribute('readonly', '');
+    input.style.position = 'fixed';
+    input.style.opacity = '0';
+    document.body.appendChild(input);
+    input.select();
+    input.setSelectionRange(0, EMAIL.length);
+    const copied = document.execCommand('copy');
     input.remove();
+    return copied;
+  } catch {
+    return false;
   }
+}
+
+function selectEmailText() {
+  const link = document.getElementById('email-link');
+  if (!link) return;
+  const range = document.createRange();
+  range.selectNodeContents(link);
+  const selection = window.getSelection();
+  selection.removeAllRanges();
+  selection.addRange(range);
+}
+
+async function copyEmail() {
+  if (canCopy()) {
+    try {
+      await navigator.clipboard.writeText(EMAIL);
+      return true;
+    } catch {
+      /* fall through to the selection path */
+    }
+  }
+  return execCopyFallback();
 }
 
 function initContact() {
   const link = document.getElementById('email-link');
-  if (link) link.href = mailtoHref(EMAIL, 'Project enquiry');
+  if (link) link.href = mailtoHref(EMAIL, t(lang, 'contact.subject'));
 
   const button = document.getElementById('copy-email');
   const feedback = document.getElementById('copy-feedback');
   if (!button) return;
 
   button.addEventListener('click', async () => {
-    try {
-      if (canCopy()) await navigator.clipboard.writeText(EMAIL);
-      else selectEmailFallback();
-    } catch {
-      selectEmailFallback();
+    const copied = await copyEmail();
+
+    if (copied) {
+      if (feedback) {
+        feedback.hidden = false;
+        setTimeout(() => {
+          feedback.hidden = true;
+        }, 2000);
+      }
+      return;
     }
 
-    if (feedback) {
-      feedback.hidden = false;
-      setTimeout(() => { feedback.hidden = true; }, 2000);
-    }
+    selectEmailText();
   });
 }
 

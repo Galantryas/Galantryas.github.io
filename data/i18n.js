@@ -54,13 +54,12 @@ export const dictionaries = {
 
     'contact.title': 'Contact',
     'contact.lead': 'Email is the fastest way to reach me. Indonesian or English.',
-    'contact.email.label': 'Email address',
     'contact.copy': 'Copy',
     'contact.copied': 'Copied',
+    'contact.subject': 'Project enquiry',
     'contact.cv': 'Download CV',
 
-    'ui.theme.toDark': 'Dark',
-    'ui.theme.toLight': 'Light',
+    'ui.theme.dark': 'Dark mode',
     'ui.lang': 'Language',
   },
 
@@ -119,13 +118,12 @@ export const dictionaries = {
 
     'contact.title': 'Kontak',
     'contact.lead': 'Email adalah cara tercepat menghubungi saya. Bahasa Indonesia atau Inggris.',
-    'contact.email.label': 'Alamat email',
     'contact.copy': 'Salin',
     'contact.copied': 'Tersalin',
+    'contact.subject': 'Pertanyaan proyek',
     'contact.cv': 'Unduh CV',
 
-    'ui.theme.toDark': 'Gelap',
-    'ui.theme.toLight': 'Terang',
+    'ui.theme.dark': 'Mode gelap',
     'ui.lang': 'Bahasa',
   },
 };

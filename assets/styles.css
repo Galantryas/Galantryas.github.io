@@ -1,7 +1,7 @@
 :root {
   --paper: #f4f1ea;
   --ink: #191512;
-  --rule: #ddd6c9;
+  --rule: #8a8175;
   --muted: #6d655a;
   --accent: #7a2e1e;
 
@@ -20,7 +20,7 @@
   :root {
     --paper: #15130f;
     --ink: #ebe5d9;
-    --rule: #2e2a24;
+    --rule: #6d655a;
     --muted: #8a8175;
     --accent: #d9905e;
   }
@@ -29,7 +29,7 @@
 [data-theme="dark"] {
   --paper: #15130f;
   --ink: #ebe5d9;
-  --rule: #2e2a24;
+  --rule: #6d655a;
   --muted: #8a8175;
   --accent: #d9905e;
 }
@@ -37,7 +37,7 @@
 [data-theme="light"] {
   --paper: #f4f1ea;
   --ink: #191512;
-  --rule: #ddd6c9;
+  --rule: #8a8175;
   --muted: #6d655a;
   --accent: #7a2e1e;
 }
@@ -304,6 +304,15 @@ p { margin: 0 0 var(--s3); }
   color: var(--muted);
 }
 
+.work-figure.is-broken img { display: none; }
+
+.work-figure.is-broken::after {
+  content: attr(data-fallback);
+  font-family: var(--serif);
+  font-size: 20px;
+  color: var(--muted);
+}
+
 .timeline {
   list-style: none;
   margin: 0;
@@ -408,7 +417,14 @@ p { margin: 0 0 var(--s3); }
   .rail-role { display: none; }
 
   .rail-nav {
-    display: none;
+    order: 3;
+    flex-basis: 100%;
+    flex-direction: row;
+    gap: var(--s4);
+    margin-top: 0;
+    font-size: 10px;
+    padding-top: var(--s2);
+    border-top: 1px solid var(--rule);
   }
 
   .rail-controls { order: 2; }

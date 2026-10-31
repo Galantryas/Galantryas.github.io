@@ -15,13 +15,14 @@ function escapeHtml(value) {
   );
 }
 
-export function renderWorkRow(project, lang, detailHtml = '') {  const title = escapeHtml(localize(project.title, lang));
+export function renderWorkRow(project, lang, detailHtml = '', expanded = false) {
+  const title = escapeHtml(localize(project.title, lang));
   const stack = escapeHtml(project.stack.join(' · '));
   const year = escapeHtml(project.year);
   const id = escapeHtml(project.id);
 
   return `<li class="work-row">
-  <button class="work-toggle" type="button" aria-expanded="false" aria-controls="detail-${id}">
+  <button class="work-toggle" type="button" aria-expanded="${expanded}" aria-controls="detail-${id}">
     <span class="work-title">${title}</span>
     <span class="work-stack">${stack}</span>
     <span class="work-year">${year}</span>
@@ -29,7 +30,7 @@ export function renderWorkRow(project, lang, detailHtml = '') {  const title = e
 </li>`;
 }
 
-export function renderWorkDetail(project, lang) {
+export function renderWorkDetail(project, lang, expanded = false) {
   const title = escapeHtml(localize(project.title, lang));
   const role = escapeHtml(localize(project.role, lang));
   const summary = escapeHtml(localize(project.summary, lang));
@@ -37,19 +38,19 @@ export function renderWorkDetail(project, lang) {
   const id = escapeHtml(project.id);
 
   const figure = project.image
-    ? `<div class="work-figure"><img src="${escapeHtml(project.image)}" alt="${title} — ${role}" loading="lazy" width="1600" height="1000"></div>`
-    : `<div class="work-figure work-placeholder"><span>${title}</span></div>`;
+    ? `<div class="work-figure" data-fallback="${title}"><img src="${escapeHtml(project.image)}" alt="${title} — ${role}" loading="lazy" width="1600" height="1000" onerror="this.closest('.work-figure').classList.add('is-broken')"></div>`
+    : `<div class="work-figure work-placeholder" data-fallback="${title}"><span>${title}</span></div>`;
 
   const demo = project.demo
     ? ` · <a href="${escapeHtml(project.demo)}" rel="noopener">Live</a>`
     : '';
 
   return `
-  <div class="work-detail" id="detail-${id}" hidden>
+  <div class="work-detail" id="detail-${id}"${expanded ? '' : ' hidden'}>
     ${figure}
     <p>${summary}</p>
     <p class="meta">${role}</p>
-    <p><a href="${repo}" rel="noopener">GitHub</a>${demo}</p>
+    <p><a href="${repo}" rel="noopener">${escapeHtml(localize(project.title, lang))} on GitHub</a>${demo}</p>
   </div>`;
 }
 
@@ -70,4 +71,23 @@ export function mailtoHref(email, subject) {
 
 export function canCopy() {
   return typeof navigator !== 'undefined' && !!navigator.clipboard?.writeText;
+}
+
+export function readStore(storage, key) {
+  try {
+    if (!storage) return null;
+    return storage.getItem(key) ?? null;
+  } catch {
+    return null;
+  }
+}
+
+export function writeStore(storage, key, value) {
+  try {
+    if (!storage) return false;
+    storage.setItem(key, value);
+    return true;
+  } catch {
+    return false;
+  }
 }
