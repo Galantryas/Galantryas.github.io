@@ -127,6 +127,31 @@ function initContact() {
   });
 }
 
+function initReveals() {
+  const sections = [...document.querySelectorAll('main section')];
+  const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  if (reduced) {
+    sections.forEach((section) => section.classList.add('is-visible'));
+    return;
+  }
+
+  document.documentElement.classList.add('js');
+
+  const reveal = () => {
+    const limit = window.innerHeight * 0.95;
+    sections.forEach((section) => {
+      if (section.classList.contains('is-visible')) return;
+      if (section.getBoundingClientRect().top < limit) section.classList.add('is-visible');
+    });
+  };
+
+  reveal();
+  window.addEventListener('scroll', reveal, { passive: true });
+  window.addEventListener('resize', reveal, { passive: true });
+}
+
 initTheme();
 initLang();
 initContact();
+initReveals();
