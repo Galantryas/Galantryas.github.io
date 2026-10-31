@@ -113,7 +113,7 @@ img { display: block; max-width: 100%; }
 }
 
 main {
-  padding: var(--s9) var(--s8);
+  padding: var(--s7) var(--s8) var(--s9);
   max-width: 68ch;
 }
 
