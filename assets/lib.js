@@ -57,3 +57,8 @@ export function resolveTheme(stored, systemPrefersDark) {
   if (stored === 'light' || stored === 'dark') return stored;
   return systemPrefersDark ? 'dark' : 'light';
 }
+
+export function resolveLang(stored, navigatorLang) {
+  if (stored === 'en' || stored === 'id') return stored;
+  return String(navigatorLang || '').toLowerCase().startsWith('id') ? 'id' : 'en';
+}
