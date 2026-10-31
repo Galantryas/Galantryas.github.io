@@ -11,25 +11,119 @@
   <a class="skip" href="#main">Skip to content</a>
   <div class="shell">
     <header class="rail">
-      <p class="meta">Galantryas Mukti Pratama</p>
+      <div class="rail-top">
+        <p class="status meta">
+          <span class="dot" aria-hidden="true"></span>
+          <span data-i18n="hero.status">Open to work</span>
+        </p>
+        <p class="name">Galantryas<br>Mukti<br>Pratama</p>
+        <p class="role meta" data-i18n="rail.role">Full-stack PHP developer</p>
+      </div>
+
+      <nav class="rail-nav" aria-label="Sections">
+        <a href="#work" data-i18n="nav.work">Work</a>
+        <a href="#about" data-i18n="nav.about">About</a>
+        <a href="#experience" data-i18n="nav.experience">Experience</a>
+        <a href="#contact" data-i18n="nav.contact">Contact</a>
+      </nav>
+
+      <div class="rail-controls">
+        <button id="theme-toggle" type="button" aria-pressed="false">
+          <span data-i18n="ui.theme.toDark">Dark</span>
+        </button>
+        <div class="lang" role="group" aria-label="Language">
+          <button type="button" data-lang="en" aria-pressed="true">EN</button>
+          <button type="button" data-lang="id" aria-pressed="false">ID</button>
+        </div>
+      </div>
     </header>
+
     <main id="main">
       <section id="hero">
-        <h1>Full-stack PHP developer</h1>
+        <h1 class="hero-title">
+          <span data-i18n="hero.line1">I build the systems</span><br>
+          <span data-i18n="hero.line2">businesses actually</span><br>
+          <span class="accent" data-i18n="hero.line3">run on.</span>
+        </h1>
+        <p class="hero-summary" data-i18n="hero.summary">
+          Six years of Laravel and Vue behind cooperative, POS, HRIS and PPOB systems.
+          Currently a PHP programmer at Firstasia Consultants.
+        </p>
       </section>
+
       <section id="work">
-        <h2>Work</h2>
+        <h2 data-i18n="work.title">Selected work</h2>
+        <p class="work-intro" data-i18n="work.intro">Two projects from the archive. Both shipped, both mine.</p>
         <ul id="work-list"></ul>
-        <noscript><p class="meta">The work list needs JavaScript enabled.</p></noscript>
+        <noscript><p class="meta" data-i18n="work.noscript">The work list needs JavaScript enabled.</p></noscript>
       </section>
+
       <section id="about">
-        <h2>About</h2>
+        <h2 data-i18n="about.title">About</h2>
+        <p data-i18n="about.p1">
+          I started in 2018 building a mini banking system in Laravel for a programme run by my
+          vocational school with PT Bank Central Asia.
+        </p>
+        <p data-i18n="about.p2">
+          Cooperative management, point of sale, HRIS, PPOB, regional data.
+        </p>
       </section>
+
       <section id="experience">
-        <h2>Experience</h2>
+        <h2 data-i18n="experience.title">Experience</h2>
+        <ol class="timeline">
+          <li>
+            <p class="meta" data-i18n="exp.firstasia.period">Feb 2024 — present</p>
+            <h3>Firstasia Consultants</h3>
+            <p class="role" data-i18n="exp.firstasia.role">PHP Programmer</p>
+            <p data-i18n="exp.firstasia.note">Firstasia Consultants. Backend systems for client projects.</p>
+          </li>
+          <li>
+            <p class="meta" data-i18n="exp.cipta.period">Mar 2021 — Jan 2024</p>
+            <h3>CV Cipta Solutindo Tech</h3>
+            <p class="role" data-i18n="exp.cipta.role">Full Stack Web &amp; Mobile Developer</p>
+            <p data-i18n="exp.cipta.note">Cooperatives, POS, trading, land valuation, HRIS, PPOB and Baznas assistance systems.</p>
+          </li>
+          <li>
+            <p class="meta" data-i18n="exp.revolto.period">2020</p>
+            <h3>Revolto</h3>
+            <p class="role" data-i18n="exp.revolto.role">Frontend Web Developer</p>
+            <p data-i18n="exp.revolto.note">E-commerce for NMAA and the Ministry of Industry, built in Vue.</p>
+          </li>
+          <li>
+            <p class="meta" data-i18n="exp.nusantera.period">Jun — Aug 2019</p>
+            <h3>Nusantera</h3>
+            <p class="role" data-i18n="exp.nusantera.role">Full Stack Web Developer</p>
+            <p data-i18n="exp.nusantera.note">Energy monitoring site, built in Vue.</p>
+          </li>
+          <li>
+            <p class="meta" data-i18n="exp.bca.period">2018</p>
+            <h3>Vocational School UGM &times; PT Bank Central Asia</h3>
+            <p class="role" data-i18n="exp.bca.role">Junior Programmer</p>
+            <p data-i18n="exp.bca.note">Mini banking system in Laravel.</p>
+          </li>
+          <li>
+            <p class="meta" data-i18n="exp.edu.period">2020</p>
+            <h3>Universitas Gadjah Mada</h3>
+            <p class="role" data-i18n="exp.edu.role">Associate Degree, Computer and Information Systems</p>
+            <p data-i18n="exp.edu.note">Vocational School. GPA 3.74.</p>
+          </li>
+        </ol>
       </section>
+
       <section id="contact">
-        <h2>Contact</h2>
+        <h2 data-i18n="contact.title">Contact</h2>
+        <p data-i18n="contact.lead">Email is the fastest way to reach me. Indonesian or English.</p>
+        <p class="contact-row">
+          <a href="mailto:galantryas.2014@gmail.com" id="email-link">galantryas.2014@gmail.com</a>
+          <button type="button" id="copy-email" data-i18n="contact.copy">Copy</button>
+          <span id="copy-feedback" class="meta" data-i18n="contact.copied" hidden>Copied</span>
+        </p>
+        <p class="contact-links">
+          <a href="https://github.com/Galantryas" rel="noopener">GitHub</a>
+          <a href="https://www.linkedin.com/in/galantryas-mukti-pratama" rel="noopener">LinkedIn</a>
+          <a href="assets/cv.pdf" download data-i18n="contact.cv">Download CV</a>
+        </p>
       </section>
     </main>
   </div>
