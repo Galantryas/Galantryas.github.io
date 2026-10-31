@@ -15,8 +15,7 @@ function escapeHtml(value) {
   );
 }
 
-export function renderWorkRow(project, lang, detailHtml = '') {
-  const title = escapeHtml(localize(project.title, lang));
+export function renderWorkRow(project, lang, detailHtml = '') {  const title = escapeHtml(localize(project.title, lang));
   const stack = escapeHtml(project.stack.join(' · '));
   const year = escapeHtml(project.year);
   const id = escapeHtml(project.id);
@@ -52,4 +51,9 @@ export function renderWorkDetail(project, lang) {
     <p class="meta">${role}</p>
     <p><a href="${repo}" rel="noopener">GitHub</a>${demo}</p>
   </div>`;
+}
+
+export function resolveTheme(stored, systemPrefersDark) {
+  if (stored === 'light' || stored === 'dark') return stored;
+  return systemPrefersDark ? 'dark' : 'light';
 }
