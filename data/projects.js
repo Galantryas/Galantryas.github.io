@@ -11,7 +11,7 @@ export const projects = [
     },
     repo: 'https://github.com/Galantryas/smarteco2',
     demo: null,
-    image: 'assets/work/smarteco.webp',
+    images: ['assets/work/smarteco.webp', 'assets/work/smarteco-2.webp'],
   },
   {
     id: 'nusaenergi',
@@ -25,6 +25,6 @@ export const projects = [
     },
     repo: 'https://github.com/Galantryas/NusaEnergi',
     demo: null,
-    image: 'assets/work/nusaenergi.webp',
+    images: ['assets/work/nusaenergi.webp'],
   },
 ];

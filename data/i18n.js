@@ -17,6 +17,11 @@ export const dictionaries = {
     'work.title': 'Selected work',
     'work.intro': 'Two projects from the archive. Both shipped, both mine.',
     'work.noscript': 'The work list needs JavaScript enabled.',
+    'work.gallery': 'Project screenshots',
+    'work.pagination': 'Projects pagination',
+    'work.prev': 'Previous',
+    'work.next': 'Next',
+    'work.page': 'Page {page} of {pages}',
 
     'about.title': 'About',
     'about.p1':
@@ -81,6 +86,11 @@ export const dictionaries = {
     'work.title': 'Karya terpilih',
     'work.intro': 'Dua proyek dari arsip. Keduanya sudah dipakai, keduanya buatan saya.',
     'work.noscript': 'Daftar karya memerlukan JavaScript.',
+    'work.gallery': 'Tangkapan layar proyek',
+    'work.pagination': 'Navigasi halaman karya',
+    'work.prev': 'Sebelumnya',
+    'work.next': 'Berikutnya',
+    'work.page': 'Halaman {page} dari {pages}',
 
     'about.title': 'Tentang',
     'about.p1':

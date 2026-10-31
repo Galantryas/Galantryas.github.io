@@ -2,6 +2,8 @@ import { projects } from '../data/projects.js';
 import {
   renderWorkRow,
   renderWorkDetail,
+  renderWorkPager,
+  paginate,
   resolveTheme,
   resolveLang,
   mailtoHref,
@@ -16,6 +18,7 @@ const LANG_KEY = 'porto.lang';
 const EMAIL = 'galantryas.2014@gmail.com';
 
 let lang = 'en';
+let page = 1;
 const expandedIds = new Set();
 
 function storage() {
@@ -30,7 +33,10 @@ function renderWork() {
   const list = document.getElementById('work-list');
   if (!list) return;
 
-  list.innerHTML = projects
+  const view = paginate(projects, page, 5);
+  page = view.page;
+
+  list.innerHTML = view.items
     .map((project) =>
       renderWorkRow(
         project,
@@ -53,6 +59,34 @@ function renderWork() {
       if (detail) detail.hidden = isOpen;
     });
   });
+
+  list.querySelectorAll('.work-thumb').forEach((thumb) => {
+    thumb.addEventListener('click', () => {
+      const target = document.getElementById(thumb.dataset.target);
+      if (target) {
+        target.classList.remove('is-broken');
+        target.src = thumb.dataset.src;
+      }
+      thumb.parentElement
+        .querySelectorAll('.work-thumb')
+        .forEach((other) => other.setAttribute('aria-pressed', String(other === thumb)));
+    });
+  });
+
+  const pager = document.getElementById('work-pager');
+  if (pager) {
+    pager.innerHTML = renderWorkPager(view.page, view.pages, lang);
+    pager.querySelector('.work-prev')?.addEventListener('click', () => {
+      page = view.page - 1;
+      renderWork();
+      document.getElementById('work')?.scrollIntoView({ block: 'start' });
+    });
+    pager.querySelector('.work-next')?.addEventListener('click', () => {
+      page = view.page + 1;
+      renderWork();
+      document.getElementById('work')?.scrollIntoView({ block: 'start' });
+    });
+  }
 
   const fallback = document.getElementById('work-fallback');
   if (fallback) fallback.hidden = true;
