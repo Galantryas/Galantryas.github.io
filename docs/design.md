@@ -153,7 +153,7 @@ replaced when the projects themselves are replaced.
 
 ## Experience timeline
 
-1. Firstasia Consultants — PHP Programmer — Feb 2024 – present
+1. Firstasia Consultants — Software Engineer — Feb 2024 – present
 2. CV Cipta Solutindo Tech — Full Stack Web & Mobile Developer — Mar 2021 – Jan 2024
 3. Revolto — Frontend Web Developer — 2020
 4. Nusantera — Full Stack Web Developer (internship) — Jun–Aug 2019

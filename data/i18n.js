@@ -12,7 +12,7 @@ export const dictionaries = {
     'hero.line2': 'businesses actually',
     'hero.line3': 'run on.',
     'hero.summary':
-      'Six years of Laravel and Vue behind cooperative, POS, HRIS and PPOB systems. Currently a PHP programmer at Firstasia Consultants.',
+      'Six years of Laravel and Vue behind cooperative, POS, HRIS and PPOB systems. Currently a software engineer at Firstasia Consultants.',
 
     'work.title': 'Selected work',
     'work.intro': 'Two projects from the archive. Both shipped, both mine.',
@@ -32,7 +32,7 @@ export const dictionaries = {
     'experience.title': 'Experience',
 
     'exp.firstasia.period': 'Feb 2024 — present',
-    'exp.firstasia.role': 'PHP Programmer',
+    'exp.firstasia.role': 'Software Engineer',
     'exp.firstasia.note': 'Firstasia Consultants. Backend systems for client projects.',
 
     'exp.cipta.period': 'Mar 2021 — Jan 2024',
@@ -81,7 +81,7 @@ export const dictionaries = {
     'hero.line2': 'sistem yang benar-benar',
     'hero.line3': 'dipakai.',
     'hero.summary':
-      'Enam tahun Laravel dan Vue di balik sistem koperasi, POS, HRIS, dan PPOB. Saat ini programmer PHP di Firstasia Consultants.',
+      'Enam tahun Laravel dan Vue di balik sistem koperasi, POS, HRIS, dan PPOB. Saat ini software engineer di Firstasia Consultants.',
 
     'work.title': 'Karya terpilih',
     'work.intro': 'Dua proyek dari arsip. Keduanya sudah dipakai, keduanya buatan saya.',
@@ -101,7 +101,7 @@ export const dictionaries = {
     'experience.title': 'Pengalaman',
 
     'exp.firstasia.period': 'Feb 2024 — sekarang',
-    'exp.firstasia.role': 'Programmer PHP',
+    'exp.firstasia.role': 'Software Engineer',
     'exp.firstasia.note': 'Firstasia Consultants. Sistem backend untuk proyek klien.',
 
     'exp.cipta.period': 'Mar 2021 — Jan 2024',
