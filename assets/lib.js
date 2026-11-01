@@ -86,7 +86,7 @@ export function renderWorkDetail(project, lang, expanded = false) {
   }
 
   const demo = project.demo
-    ? ` · <a href="${escapeHtml(project.demo)}" rel="noopener">Live</a>`
+    ? ` · <a href="${escapeHtml(project.demo)}" target="_blank" rel="noopener">Live</a>`
     : '';
 
   return `
@@ -94,7 +94,7 @@ export function renderWorkDetail(project, lang, expanded = false) {
     ${figure}
     <p>${summary}</p>
     <p class="meta">${role}</p>
-    <p><a href="${repo}" rel="noopener">${title} on GitHub</a>${demo}</p>
+    <p><a href="${repo}" target="_blank" rel="noopener">${title} on GitHub</a>${demo}</p>
   </div>`;
 }
 

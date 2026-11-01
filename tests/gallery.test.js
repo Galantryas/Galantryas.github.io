@@ -41,3 +41,9 @@ test('a demo url adds a live link', () => {
   assert.match(detail, /href="https:\/\/example\.com\/demo"/);
   assert.match(detail, />Live</);
 });
+
+test('external work links open in a new tab', () => {
+  const detail = renderWorkDetail({ ...base, demo: 'https://example.com/demo' }, 'en');
+  assert.equal((detail.match(/target="_blank"/g) || []).length, 2);
+  assert.equal((detail.match(/rel="noopener"/g) || []).length, 2);
+});

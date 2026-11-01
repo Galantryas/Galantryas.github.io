@@ -34,3 +34,12 @@ test('favicon is declared on both pages and the files exist', () => {
     assert.ok(existsSync(new URL(`../assets/${file}`, import.meta.url)), file);
   }
 });
+
+test('profile links open in a new tab', () => {
+  for (const url of ['https://github.com/Galantryas', 'https://www.linkedin.com/in/galantryas-mukti-pratama']) {
+    const tag = html.match(new RegExp(`<a[^>]*href="${url.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}"[^>]*>`));
+    assert.ok(tag, `missing link ${url}`);
+    assert.match(tag[0], /target="_blank"/);
+    assert.match(tag[0], /rel="noopener"/);
+  }
+});
