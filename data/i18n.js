@@ -15,7 +15,7 @@ export const dictionaries = {
       'Six years of Laravel and Vue behind cooperative, POS, HRIS and PPOB systems. Currently a software engineer at Firstasia Consultants.',
 
     'work.title': 'Selected work',
-    'work.intro': 'Two projects from the archive. Both shipped, both mine.',
+    'work.intro': 'Every project here is public on GitHub. Open one for the stack, the role, and the source.',
     'work.noscript': 'The work list needs JavaScript enabled.',
     'work.gallery': 'Project screenshots',
     'work.pagination': 'Projects pagination',
@@ -84,7 +84,7 @@ export const dictionaries = {
       'Enam tahun Laravel dan Vue di balik sistem koperasi, POS, HRIS, dan PPOB. Saat ini software engineer di Firstasia Consultants.',
 
     'work.title': 'Karya terpilih',
-    'work.intro': 'Dua proyek dari arsip. Keduanya sudah dipakai, keduanya buatan saya.',
+    'work.intro': 'Semua proyek di sini publik di GitHub. Buka salah satu untuk melihat stack, peran, dan kodenya.',
     'work.noscript': 'Daftar karya memerlukan JavaScript.',
     'work.gallery': 'Tangkapan layar proyek',
     'work.pagination': 'Navigasi halaman karya',
