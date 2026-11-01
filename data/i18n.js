@@ -25,7 +25,7 @@ export const dictionaries = {
 
     'about.title': 'About',
     'about.p1':
-      'I started in 2018 building a mini banking system in Laravel for a programme run by my vocational school with PT Bank Central Asia. The work has kept that shape since: systems that hold money, stock, membership or records, used by people who cannot afford for them to be wrong.',
+      'I have been building business systems since 2018: the kind that hold money, stock, membership or records, and that are used by people who cannot afford for them to be wrong. Laravel on the server, Vue on the front, and usually a cooperative, a retailer or an internal team on the other side of the screen.',
     'about.p2':
       'Cooperative management, point of sale, HRIS, PPOB, regional data. I have built each of those more than once, which means less time learning the domain and more time on the parts that are actually hard.',
 
@@ -51,7 +51,7 @@ export const dictionaries = {
     'exp.bca.period': '2018',
     'exp.bca.role': 'Junior Programmer',
     'exp.bca.note':
-      'Vocational School UGM with PT Bank Central Asia. Mini banking system in Laravel.',
+      'Vocational School UGM with PT Bank Central Asia. Junior programmer during the programme.',
 
     'exp.edu.period': '2020',
     'exp.edu.role': 'Associate Degree, Computer and Information Systems',
@@ -94,7 +94,7 @@ export const dictionaries = {
 
     'about.title': 'Tentang',
     'about.p1':
-      'Saya mulai tahun 2018 membangun sistem mini banking dengan Laravel untuk program sekolah vokasi saya bersama PT Bank Central Asia. Sejak itu bentuk pekerjaannya tidak berubah: sistem yang menyimpan uang, stok, keanggotaan, atau data, dipakai orang yang tidak bisa menerima kalau sistemnya salah.',
+      'Saya membangun sistem bisnis sejak 2018: sistem yang menyimpan uang, stok, keanggotaan, atau data, dan dipakai oleh orang yang tidak bisa menerima kalau sistemnya salah. Laravel di sisi server, Vue di sisi depan, dan biasanya koperasi, ritel, atau tim internal di balik layar.',
     'about.p2':
       'Koperasi, point of sale, HRIS, PPOB, data wilayah. Semuanya sudah saya bangun lebih dari sekali, jadi waktunya lebih banyak untuk bagian yang memang sulit, bukan untuk mempelajari domainnya.',
 
@@ -120,7 +120,7 @@ export const dictionaries = {
     'exp.bca.period': '2018',
     'exp.bca.role': 'Programmer Junior',
     'exp.bca.note':
-      'Sekolah Vokasi UGM bersama PT Bank Central Asia. Sistem mini banking dengan Laravel.',
+      'Sekolah Vokasi UGM bersama PT Bank Central Asia. Programmer junior selama program.',
 
     'exp.edu.period': '2020',
     'exp.edu.role': 'D3 Sistem Informasi dan Komputer',
