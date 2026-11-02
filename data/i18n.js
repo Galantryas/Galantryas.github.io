@@ -35,7 +35,7 @@ export const dictionaries = {
 
     'exp.firstasia.period': 'Feb 2024 — present',
     'exp.firstasia.role': 'Software Engineer',
-    'exp.firstasia.note': 'Firstasia Consultants. Backend systems for client projects.',
+    'exp.firstasia.note': 'Firstasia Consultants. Systems for company & client projects.',
 
     'exp.cipta.period': 'Mar 2021 — Jan 2024',
     'exp.cipta.role': 'Full Stack Web & Mobile Developer',
@@ -106,7 +106,7 @@ export const dictionaries = {
 
     'exp.firstasia.period': 'Feb 2024 — sekarang',
     'exp.firstasia.role': 'Software Engineer',
-    'exp.firstasia.note': 'Firstasia Consultants. Sistem backend untuk proyek klien.',
+    'exp.firstasia.note': 'Firstasia Consultants. Sistem untuk proyek perusahaan dan klien.',
 
     'exp.cipta.period': 'Mar 2021 — Jan 2024',
     'exp.cipta.role': 'Full Stack Web & Mobile Developer',
