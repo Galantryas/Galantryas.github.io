@@ -11,7 +11,7 @@ test('document declares English and a skip link', () => {
 });
 
 test('every required landmark exists once', () => {
-  for (const id of ['main', 'work', 'about', 'experience', 'contact']) {
+  for (const id of ['main', 'work', 'about', 'experience', 'education', 'contact']) {
     assert.equal(html.split(`id="${id}"`).length - 1, 1, id);
   }
 });

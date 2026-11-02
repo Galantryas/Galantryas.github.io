@@ -3,6 +3,7 @@ export const dictionaries = {
     'nav.work': 'Work',
     'nav.about': 'About',
     'nav.experience': 'Experience',
+    'nav.education': 'Education',
     'nav.contact': 'Contact',
 
     'rail.role': 'Full-stack PHP developer',
@@ -29,7 +30,8 @@ export const dictionaries = {
     'about.p2':
       'Cooperative management, point of sale, HRIS, PPOB, regional data. I have built each of those more than once, which means less time learning the domain and more time on the parts that are actually hard.',
 
-    'experience.title': 'Experience',
+    'experience.title': 'Work experience',
+    'education.title': 'Education',
 
     'exp.firstasia.period': 'Feb 2024 — present',
     'exp.firstasia.role': 'Software Engineer',
@@ -55,7 +57,7 @@ export const dictionaries = {
 
     'exp.edu.period': '2020',
     'exp.edu.role': 'Associate Degree, Computer and Information Systems',
-    'exp.edu.note': 'Vocational School Gadjah Mada University. GPA 3.74.',
+    'exp.edu.note': 'Vocational School, Universitas Gadjah Mada. GPA 3.74.',
 
     'contact.title': 'Contact',
     'contact.lead': 'Email is the fastest way to reach me. Indonesian or English.',
@@ -72,6 +74,7 @@ export const dictionaries = {
     'nav.work': 'Karya',
     'nav.about': 'Tentang',
     'nav.experience': 'Pengalaman',
+    'nav.education': 'Pendidikan',
     'nav.contact': 'Kontak',
 
     'rail.role': 'Pengembang PHP full-stack',
@@ -98,7 +101,8 @@ export const dictionaries = {
     'about.p2':
       'Koperasi, point of sale, HRIS, PPOB, data wilayah. Semuanya sudah saya bangun lebih dari sekali, jadi waktunya lebih banyak untuk bagian yang memang sulit, bukan untuk mempelajari domainnya.',
 
-    'experience.title': 'Pengalaman',
+    'experience.title': 'Pengalaman kerja',
+    'education.title': 'Pendidikan',
 
     'exp.firstasia.period': 'Feb 2024 — sekarang',
     'exp.firstasia.role': 'Software Engineer',

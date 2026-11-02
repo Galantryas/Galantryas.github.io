@@ -2,7 +2,7 @@
 
 Source for [galantryas.github.io](https://galantryas.github.io/), the personal portfolio of Galantryas Mukti Pratama — a full-stack developer working in Laravel and Vue.
 
-The site is a single page with a fixed side rail, a work ledger, an experience timeline, and a contact block. It is written as plain HTML, CSS, and ES modules: no framework, no build step, no runtime dependencies, and no third-party requests.
+The site is a single page with a fixed side rail, a work ledger, work experience and education timelines, and a contact block. It is written as plain HTML, CSS, and ES modules: no framework, no build step, no runtime dependencies, and no third-party requests.
 
 ## Stack
 

@@ -87,14 +87,15 @@ These would make the site a failure even if it ships:
 
 ## Structure
 
-Single page, five anchored sections:
+Single page, six anchored sections:
 
 1. **Hero** — availability line, three-line serif statement, one-sentence mono summary.
 2. **Work** — ledger rows, not cards. Each row: title, stack, year. Expands to a detail
    block (screenshot, three-line description, role, repo link).
 3. **About** — two short paragraphs: what I build and for whom; the systems list.
-4. **Experience** — timeline: role, company, period, one line each. Ends with education.
-5. **Contact** — email with click-to-copy, GitHub, LinkedIn, CV download.
+4. **Work experience** — timeline: role, company, period, one line each.
+5. **Education** — timeline: institution, qualification, period, one line each.
+6. **Contact** — email with click-to-copy, GitHub, LinkedIn, CV download.
 
 ## Design system
 
