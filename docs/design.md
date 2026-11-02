@@ -82,8 +82,9 @@ These would make the site a failure even if it ships:
 ### Layout
 
 - L1 (centred single column) vs **L2 (fixed side rail)**.
-- **Chosen: L2.** Name, role, availability, nav pinned left; content scrolls right.
-  Collapses to a top bar under 900px. Extends to a `/work` page later without redesign.
+- **Chosen: L2.** Name, role, availability, nav pinned left in a fluid 260–400px rail;
+  content scrolls right. Collapses to a top bar under 900px. Extends to a `/work` page
+  later without redesign.
 
 ## Structure
 
@@ -112,10 +113,12 @@ Tokens as CSS custom properties on `:root`, overridden under
 
 - Display: serif stack (`Georgia, 'Iowan Old Style', 'Source Serif 4', serif`), tight
   tracking, 1.05 line-height.
-- Body: `system-ui` at 17px/1.6.
-- Metadata: `ui-monospace, 'SFMono-Regular', Consolas, monospace`, 11–12px, uppercase,
-  `letter-spacing: .16em`.
-- Spacing scale: 4 / 8 / 12 / 16 / 24 / 32 / 48 / 64 / 96.
+- Body: `system-ui`, fluid 16–17px at 1.6 line-height.
+- Metadata: `ui-monospace, 'SFMono-Regular', Consolas, monospace`, fluid 10–13px,
+  uppercase, `letter-spacing: .16em`.
+- Spacing scale: 4 / 8 / 12 / 16 / 24 / 32 / 48 / 64 / 96, fluid between 320px and
+  1440px via `clamp()`.
+- Layout rail: fluid 260–400px on desktop, stacked top bar under 900px.
 - Radii: 0–2px. Hairline rules do the work that shadows would.
 - Motion: 160–240 ms `ease-out`; entry reveals via `IntersectionObserver`; all motion
   wrapped in `prefers-reduced-motion` guards. No parallax, no cursor followers.
